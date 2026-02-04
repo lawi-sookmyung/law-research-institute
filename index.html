@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>법학연구소 - 숙명여자대학교</title>
   <link href="https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://lawi.sookmyung.ac.kr">
+  <link rel="dns-prefetch" href="https://lawi.sookmyung.ac.kr">
   <style>
     * {
       margin: 0;
@@ -85,7 +88,7 @@
     }
 
     .logo-title {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 700;
       color: #1e293b;
       letter-spacing: -0.5px;
@@ -301,8 +304,8 @@
     /* ========== HERO SECTION ========== */
     .hero {
       position: relative;
-      height: 400px;
-      background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(59, 130, 246, 0.8) 50%, rgba(6, 182, 212, 0.75) 100%),
+      height: 520px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(30, 58, 138, 0.94) 50%, rgba(29, 78, 216, 0.92) 100%),
                   url('img/SMU_Color.jpg');
       background-size: cover;
       background-position: center;
@@ -346,7 +349,8 @@
     }
 
     .hero-title {
-      font-size: 42px;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 52px;
       font-weight: 800;
       margin-bottom: 12px;
       letter-spacing: -1px;
@@ -363,7 +367,7 @@
     .sub-hero {
       position: relative;
       height: 160px;
-      background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.85) 50%, rgba(6, 182, 212, 0.8) 100%),
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(30, 58, 138, 0.94) 50%, rgba(29, 78, 216, 0.92) 100%),
                   url('img/SMU_Color.jpg');
       background-size: cover;
       background-position: center;
@@ -1116,7 +1120,7 @@
     }
 
     .footer-logo-sub {
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: white;
     }
@@ -1258,7 +1262,7 @@
       }
 
       .logo-title {
-        font-size: 16px;
+        font-size: 18px;
       }
 
       .logo-subtitle {
@@ -1271,11 +1275,11 @@
       }
 
       .hero {
-        height: 300px;
+        height: 400px;
       }
 
       .hero-title {
-        font-size: 28px;
+        font-size: 36px;
       }
 
       .hero-desc {
@@ -1390,6 +1394,44 @@
         font-size: 12px;
       }
     }
+
+    /* iframe 로딩 스피너 */
+    .iframe-wrapper {
+      position: relative;
+      min-height: 142px;
+    }
+    .iframe-wrapper.board { min-height: 200px; }
+    .iframe-wrapper.board-page { min-height: 700px; }
+    .iframe-loader {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #f8fafc;
+      z-index: 2;
+      gap: 12px;
+      transition: opacity 0.3s ease;
+    }
+    .iframe-loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .iframe-spinner {
+      width: 28px; height: 28px;
+      border: 3px solid #e2e8f0;
+      border-top-color: #1e40af;
+      border-radius: 50%;
+      animation: iframeSpin 0.7s linear infinite;
+    }
+    .iframe-loader span {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    @keyframes iframeSpin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -1424,6 +1466,7 @@
           <div class="submenu">
             <a onclick="navigateTo('editorial')">편집규정</a>
             <a onclick="navigateTo('writing')">집필요령</a>
+            <a onclick="navigateTo('ethics')">연구윤리규정</a>
             <a onclick="navigateTo('submission')">논문게재신청서</a>
           </div>
         </div>
@@ -1456,7 +1499,7 @@
           </svg>
         </div>
 
-        <a href="mailto:lawi@sookmyung.ac.kr" class="util-link" title="EMAIL">
+        <a href="/cdn-cgi/l/email-protection#c2aea3b5ab82b1adada9afbbb7aca5eca3a1eca9b0" class="util-link" title="EMAIL">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
             <polyline points="22,6 12,13 2,6"/>
@@ -1496,6 +1539,7 @@
         <div class="mobile-menu-title">학술지 청파법학</div>
         <a onclick="navigateTo('editorial'); toggleMobileMenu();">편집규정</a>
         <a onclick="navigateTo('writing'); toggleMobileMenu();">집필요령</a>
+        <a onclick="navigateTo('ethics'); toggleMobileMenu();">연구윤리규정</a>
         <a onclick="navigateTo('submission'); toggleMobileMenu();">논문게재신청서</a>
       </div>
 
@@ -1543,7 +1587,7 @@
         <div class="footer-info">
           <p><strong>주소</strong> 04310 서울특별시 용산구 청파로47길 100 (청파동2가) 진리관 511호</p>
           <p><strong>TEL</strong> 02-2077-7359 &nbsp;|&nbsp; <strong>FAX</strong> 02-710-9838</p>
-          <p><strong>EMAIL</strong> lawi@sookmyung.ac.kr</p>
+          <p><strong>EMAIL</strong> <a href="mailto:lawi@sookmyung.ac.kr" style="color: rgba(255,255,255,0.7); text-decoration: none;">lawi@sookmyung.ac.kr</a></p>
         </div>
       </div>
       
@@ -1566,13 +1610,13 @@
       home: `
         <!-- Hero Section -->
         <section class="hero">
-          <div class="hero-content" style="display: flex; align-items: flex-start; justify-content: center; gap: 30px; width: 100%; max-width: 900px; padding: 0 40px; padding-top: 60px;">
-            <!-- 심볼 (왼쪽, 법학연구소와 같은 높이) -->
-            <div style="margin-top: 35px;">
-              <img src="img/img-ui-symbol01.png" alt="숙명여자대학교 심볼" style="width: 100px; height: 100px; filter: brightness(0) invert(1); opacity: 0.95;">
+          <div class="hero-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 900px; padding: 0 40px;">
+            <!-- 심볼 -->
+            <div style="margin-bottom: 20px;">
+              <img src="img/img-ui-symbol01.png" alt="숙명여자대학교 심볼" style="width: 90px; height: 90px; filter: brightness(0) invert(1); opacity: 0.95;">
             </div>
-            <!-- 텍스트 (오른쪽) -->
-            <div style="text-align: left;">
+            <!-- 텍스트 (중앙 정렬) -->
+            <div style="text-align: center;">
               <div class="hero-badge">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -1603,10 +1647,23 @@
                   MEMBERS LOGIN
                 </div>
               </div>
-              <div class="card-body">
-                <p style="text-align: center; color: #64748b; padding: 20px 0;">
-                  숙명 포털 계정으로 로그인하세요
-                </p>
+              <div class="card-body" style="padding: 20px;">
+                <div class="iframe-wrapper">
+                  <div class="iframe-loader" id="loginLoader">
+                    <div class="iframe-spinner"></div>
+                    <span>로그인 로딩중...</span>
+                  </div>
+                  <iframe 
+                    id="Handle1" 
+                    title="로그인" 
+                    src="https://lawi.sookmyung.ac.kr/wiz/contents/login/login.php?home_id=lawlab&handle=1" 
+                    style="width: 100%; height: 142px; border: none; overflow: hidden;" 
+                    name="login" 
+                    scrolling="no" 
+                    allowtransparency="true"
+                    loading="eager"
+                  ></iframe>
+                </div>
               </div>
             </div>
 
@@ -1624,34 +1681,29 @@
                   </div>
                   공지사항
                 </div>
-                <a onclick="navigateTo('notice')" class="card-more">
+                <a href="https://lawi.sookmyung.ac.kr/wiz/contents/board/board.php?home_id=lawlab&handle=1" target="_blank" class="card-more">
                   더보기
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="9,18 15,12 9,6"/>
                   </svg>
                 </a>
               </div>
-              <div class="card-body">
-                <div class="board-list" style="border: none;">
-                  <div class="board-item" style="border: none; padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
-                    <span class="board-title" style="display: flex; align-items: center; gap: 8px;">
-                      <span style="background: #ef4444; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N</span>
-                      2025년 법학연구소 연간 학술행사 일정 안내
-                    </span>
-                    <span class="board-date">2024.12.26</span>
+              <div class="card-body" style="padding: 0;">
+                <div class="iframe-wrapper board">
+                  <div class="iframe-loader" id="noticeLoader">
+                    <div class="iframe-spinner"></div>
+                    <span>게시판 로딩중...</span>
                   </div>
-                  <div class="board-item" style="border: none; padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
-                    <span class="board-title">청파법학 제27호 논문 투고 안내</span>
-                    <span class="board-date">2024.12.20</span>
-                  </div>
-                  <div class="board-item" style="border: none; padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
-                    <span class="board-title">법학연구소 홈페이지가 새롭게 개편되었습니다</span>
-                    <span class="board-date">2024.12.15</span>
-                  </div>
-                  <div class="board-item" style="border: none; padding: 12px 0;">
-                    <span class="board-title">AI 규제와 기본권 보호 세미나 참석 안내</span>
-                    <span class="board-date">2024.11.15</span>
-                  </div>
+                  <iframe 
+                    id="NoticeBoard" 
+                    title="공지사항" 
+                    src="https://lawi.sookmyung.ac.kr/wiz/contents/board/miniBoard.php?home_id=lawlab&handle=1" 
+                    style="width: 100%; height: 200px; border: none; overflow: hidden;" 
+                    name="noticeBoard" 
+                    scrolling="no" 
+                    allowtransparency="true"
+                    loading="eager"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -1660,37 +1712,36 @@
             <div class="card">
               <div class="card-header">
                 <div class="card-title">
-                  <div class="card-title-icon">
+                  <div class="card-title-icon" style="background: linear-gradient(135deg, #059669, #10b981);">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                     </svg>
                   </div>
                   자유게시판
                 </div>
-                <a onclick="navigateTo('freeboard')" class="card-more">
+                <a href="https://lawi.sookmyung.ac.kr/wiz/contents/board/board.php?home_id=lawlab&handle=2" target="_blank" class="card-more">
                   더보기
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="9,18 15,12 9,6"/>
                   </svg>
                 </a>
               </div>
-              <div class="card-body">
-                <div class="board-list" style="border: none;">
-                  <div class="board-item" style="border: none; padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
-                    <span class="board-title" style="display: flex; align-items: center; gap: 8px;">
-                      <span style="background: #ef4444; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N</span>
-                      청파법학 투고 경험 공유합니다
-                    </span>
-                    <span class="board-date">2024.12.18</span>
+              <div class="card-body" style="padding: 0;">
+                <div class="iframe-wrapper board">
+                  <div class="iframe-loader" id="freeLoader">
+                    <div class="iframe-spinner"></div>
+                    <span>게시판 로딩중...</span>
                   </div>
-                  <div class="board-item" style="border: none; padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
-                    <span class="board-title">AI 세미나 참석 후기 남깁니다</span>
-                    <span class="board-date">2024.11.25</span>
-                  </div>
-                  <div class="board-item" style="border: none; padding: 12px 0;">
-                    <span class="board-title">법학연구소 학술대회 참석 문의드립니다</span>
-                    <span class="board-date">2024.10.05</span>
-                  </div>
+                  <iframe 
+                    id="FreeBoard" 
+                    title="자유게시판" 
+                    src="https://lawi.sookmyung.ac.kr/wiz/contents/board/miniBoard.php?home_id=lawlab&handle=2" 
+                    style="width: 100%; height: 200px; border: none; overflow: hidden;" 
+                    name="freeBoard" 
+                    scrolling="no" 
+                    allowtransparency="true"
+                    loading="eager"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -1882,10 +1933,7 @@
                 <!-- 프로필 이미지 영역 -->
                 <div class="profile-image-area">
                   <div class="profile-image-wrapper">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                      <circle cx="12" cy="7" r="4"/>
-                    </svg>
+                    <img src="img/100.jpg" alt="우병창 연구소장" style="width: 100%; height: 100%; object-fit: cover;">
                   </div>
                   <div class="profile-info">
                     <p class="profile-position">법학연구소장</p>
@@ -2159,7 +2207,7 @@
               <!-- Stats -->
               <div style="display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
                 <div style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: #f8fafc; border-radius: 8px;">
-                  <span style="font-size: 20px; font-weight: 800; color: #1e40af;">50+</span>
+                  <span style="font-size: 20px; font-weight: 800; color: #1e40af;">60+</span>
                   <span style="font-size: 12px; color: #64748b;">학술대회</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: #f8fafc; border-radius: 8px;">
@@ -2185,57 +2233,57 @@
                     <!-- 2015 -->
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2015.11.06</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>인터넷 광고에 대한 법적 규율에서의 과제와 전망</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>인터넷 광고에 대한 법적 규율에서의 과제와 전망 (한국경제법학회·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2015.10.30</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>아동이주의 이민법적 쟁점</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>아동이주의 이민법적 쟁점 (한국이민법학회·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2015.06.19</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">정례학술발표회</span>한국전통법제 연구방법론의 성찰</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">정례학술발표회</span>한국전통법제 연구방법론의 성찰 (한국법사학회·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2015.06.05</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동심포지엄</span>대한법학교수회·대한변호사협회·숙명여대 법학연구소 공동 심포지엄</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동심포지엄</span>대한법학교수회·대한변호사협회·숙명여대 법학연구소</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2015.04.17</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>한국가족법의 현대적 과제</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>한국가족법의 현대적 과제 (한국이민법학회·숙명여대 법학연구소)</td>
                     </tr>
                     <!-- 2014 -->
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2014.11.21</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>국가혁신을 위한 법적 과제</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>국가혁신을 위한 법적 과제 (입법이론실무학회·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2014.10.18</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>청헌 김증한 교수님의 생애와 학문세계</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>청헌 김증한 교수님의 생애와 학문세계 (한국민사법학회·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2014.08.22</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>청렴국가 구현을 위한 관료제의 부패척결방안 모색</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>청렴국가 구현을 위한 관료제의 부패척결방안 모색 (한국부패학회·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2014.06.23</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>공법학 원로와의 대화 : 이상규 변호사</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>공법학 원로와의 대화 : 이상규 변호사</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2014.04.25</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>개인정보의 유출과 피해자 보호</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>개인정보의 유출과 피해자 보호 (한국피해자학회·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2014.02.07</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>아동복지법제의 현황과 과제</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>아동복지법제의 현황과 과제 (숙명여대 아동연구소·법학연구소)</td>
                     </tr>
                     <!-- 2013 -->
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2013.12.14</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>자본과 시장 - 법철학적 고찰</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>자본과 시장 - 법철학적 고찰 (한국법철학회·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2013.12.06</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>언론보도의 자유와 아동 인권</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>언론보도의 자유와 아동 인권 (숙명여대 아동연구소·법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2013.05.31</td>
@@ -2243,11 +2291,11 @@
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2013.04.13</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>국제법상 제재의 재조명</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>국제법상 제재의 재조명 (국제법 평론회·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2013.03.23</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>일본 메이지민법 제정의 경위와 비교법사적 의의</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>일본 메이지민법 제정의 경위와 비교법사적 의의 (일본 학습원대학 岡孝교수)</td>
                     </tr>
                     <!-- 2012 -->
                     <tr style="border-bottom: 1px solid #f1f5f9;">
@@ -2256,7 +2304,7 @@
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2012.11.09</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">추계학술대회</span>공정거래법과 경제민주화</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">추계학술대회</span>공정거래법과 경제민주화 (특성화연구센터)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2012.05.16</td>
@@ -2273,7 +2321,7 @@
                     <!-- 2011 -->
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2011.12.20</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>불능미수 (형법 제27조에서의 위험성판단을 중심으로)</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>불능미수 (형법 제27조에서의 위험성판단을 중심으로)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2011.12.10</td>
@@ -2310,15 +2358,27 @@
                     <!-- 2010 -->
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2010.12.10</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청간담회</span>법과 신기술</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청간담회</span>법과 신기술</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2010.10.21</td>
                       <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(239, 68, 68, 0.1); color: #dc2626; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">국제학술대회</span>Consumer, Competition and Regional Economic Integration</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2010.10.20</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>From Market Concentration to Market Outcome - The evolution of US antitrust agency horizontal merger guidelines</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2010.05.07</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(124, 58, 237, 0.1); color: #7c3aed; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">신용경제특강</span>대학생을 위한 신용경제아카데미</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2010.05.01</td>
                       <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">학술대회</span>글로벌 시장과 공정거래 정책</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2010.04.29</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>법의 날 기념 초청강연회</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2010.03~05</td>
@@ -2326,24 +2386,52 @@
                     </tr>
                     <!-- 2009 -->
                     <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.12.04</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>European Competition Law Trends and Law and Economics</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.12.03</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>대륙법의 관점에서 본 경쟁법 - EU법을 중심으로</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.11.20</td>
                       <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">학술대회</span>공정거래법의 국제적 조망 - 미국·중국 및 한국의 최신 동향</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.11.19</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">초청강연회</span>공정거래법 집행에 있어서 경제분석의 활용</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.10.29</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>프로야구산업의 발전을 위한 제도적 과제</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>프로야구산업의 발전을 위한 제도적 과제 (국민대 법학연구소·숙명여대 법학연구소)</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.09.25</td>
                       <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(239, 68, 68, 0.1); color: #dc2626; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">국제학술대회</span>Globalization and Law</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.06~07</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">연수과정</span>'공정거래법과 경제학' 연수과정 제1기 운영</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.05.21</td>
                       <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">학술대회</span>디지털 환경에서의 저작권 보호 - 한·불 양국의 현황과 전망</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
-                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.06~07</td>
-                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">연수과정</span>'공정거래법과 경제학' 연수과정 제1기 운영</td>
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.05.15</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">공동학술대회</span>한국손해사정학회 창립 1주년 기념 공동학술대회</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.05.11</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(124, 58, 237, 0.1); color: #7c3aed; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">신용경제특강</span>소비자 피해 사례 및 해결방안 (제3회)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.04.27</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(124, 58, 237, 0.1); color: #7c3aed; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">신용경제특강</span>신용카드의 현명한 사용, 소비자의 권리 이해 및 행사방법 (제2회)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2009.03.27</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(124, 58, 237, 0.1); color: #7c3aed; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">신용경제특강</span>개인신용, 신용정보관리 및 신용도 향상과 신용관리법 (제1회)</td>
                     </tr>
                     <!-- 2008 -->
                     <tr style="border-bottom: 1px solid #f1f5f9;">
@@ -2353,6 +2441,10 @@
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2008.10.31</td>
                       <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(30, 64, 175, 0.1); color: #1e40af; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">학술대회</span>EU 경쟁법을 통한 소비자 복지의 증진</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2008.10.27</td>
+                      <td style="padding: 14px 16px; font-size: 14px; color: #475569;"><span style="display: inline-block; padding: 3px 8px; background: rgba(124, 58, 237, 0.1); color: #7c3aed; font-size: 11px; font-weight: 600; border-radius: 4px; margin-right: 8px;">특강</span>대학생을 위한 완소 특강 : 신용, 신용카드 따라잡기</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #1e40af;">2008.09.05</td>
@@ -2543,8 +2635,9 @@
                   법학연구소 운영위원회
                 </h4>
                 
+                <div style="max-height: 600px; overflow-y: auto;">
                 <table style="width: 100%; border-collapse: collapse;">
-                  <thead style="background: #f8fafc;">
+                  <thead style="background: #f8fafc; position: sticky; top: 0;">
                     <tr>
                       <th style="padding: 12px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; border-bottom: 2px solid #e2e8f0; width: 100px;">직 위</th>
                       <th style="padding: 12px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; border-bottom: 2px solid #e2e8f0; width: 80px;">성 명</th>
@@ -2587,13 +2680,114 @@
                       <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">정 애 령</td>
                       <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학연구소</td>
                     </tr>
-                    <tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">정 남 철</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">박 정 구</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">백 경 일</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">정 준 섭</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">김 용 화</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">정 경 수</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">곽 민 희</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">조 수 영</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">박 영 덕</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">김 성 계</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">여 성 곤</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">김 연 수</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">권 병 진</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.1); color: #059669; font-size: 11px; font-weight: 600; border-radius: 4px;">법학부 교수</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">김 정 진</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-size: 11px; font-weight: 600; border-radius: 4px;">감사위원</span></td>
                       <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">홍 성 수</td>
                       <td style="padding: 12px; font-size: 13px; color: #64748b;">숙명여자대학교 법학부 교수</td>
                     </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(100, 116, 139, 0.1); color: #64748b; font-size: 11px; font-weight: 600; border-radius: 4px;">퇴임</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">김 희 동</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;"></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(100, 116, 139, 0.1); color: #64748b; font-size: 11px; font-weight: 600; border-radius: 4px;">퇴임</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">성 민 섭</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;">리걸클리닉 / 석좌</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(100, 116, 139, 0.1); color: #64748b; font-size: 11px; font-weight: 600; border-radius: 4px;">퇴임</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">변 진 석</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;"></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(124, 58, 237, 0.1); color: #7c3aed; font-size: 11px; font-weight: 600; border-radius: 4px;">명예</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">이 영 란</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;"></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #f1f5f9;">
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(124, 58, 237, 0.1); color: #7c3aed; font-size: 11px; font-weight: 600; border-radius: 4px;">명예</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">박 승 호</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;"></td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 12px; text-align: center;"><span style="display: inline-block; padding: 4px 10px; background: rgba(124, 58, 237, 0.1); color: #7c3aed; font-size: 11px; font-weight: 600; border-radius: 4px;">명예</span></td>
+                      <td style="padding: 12px; font-size: 14px; font-weight: 600; color: #1e293b; text-align: center;">이 욱 한</td>
+                      <td style="padding: 12px; font-size: 13px; color: #64748b;"></td>
+                    </tr>
                   </tbody>
                 </table>
+                </div>
               </div>
             </div>
 
@@ -2703,7 +2897,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       `,
 
@@ -2742,147 +2935,39 @@
         <div class="content-wrapper">
           <div class="content-card">
             <!-- Board Header -->
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; gap: 16px;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid #e2e8f0;">
               <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
+                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
-                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/>
                   </svg>
                 </div>
                 <div>
-                  <h3 style="font-size: 18px; font-weight: 700; color: #1e293b;">공지사항</h3>
-                  <p style="font-size: 13px; color: #64748b; margin-top: 2px;">총 <strong>15</strong>개의 게시물이 있습니다</p>
+                  <h3 style="font-size: 18px; font-weight: 900; color: #1e293b;">공지사항</h3>
                 </div>
               </div>
             </div>
-
-            <!-- Board Table -->
-            <div class="content-body" style="padding: 0;">
-              <table style="width: 100%; border-collapse: collapse;">
-                <thead style="background: #f8fafc;">
-                  <tr>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">번호</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: left;">제목</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">작성자</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">등록일</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">조회</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid #f1f5f9; background: rgba(245, 158, 11, 0.05);">
-                    <td style="padding: 14px 16px; text-align: center;"><span style="background: #f59e0b; color: white; font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 600;">공지</span></td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                        </svg>
-                        2025년 법학연구소 연간 학술행사 일정 안내
-                        <span style="background: #ef4444; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.12.26</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">89</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9; background: rgba(245, 158, 11, 0.05);">
-                    <td style="padding: 14px 16px; text-align: center;"><span style="background: #f59e0b; color: white; font-size: 10px; padding: 3px 8px; border-radius: 4px; font-weight: 600;">공지</span></td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                        </svg>
-                        청파법학 제27호 논문 투고 안내 (마감: 2025.01.31)
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.12.20</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">156</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">15</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none;">법학연구소 홈페이지가 새롭게 개편되었습니다</a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.12.15</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">234</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">14</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none;">AI 규제와 기본권 보호 세미나 참석 안내</a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.11.15</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">312</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">13</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none;">사회적 약자 보호를 위한 법적 과제 학술대회 개최 안내</a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.10.10</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">287</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">12</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none;">우병창 신임 연구소장 취임 안내</a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.09.01</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">456</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">11</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none;">청파법학 제26호 발간 안내</a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.06.30</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">378</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">10</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none;">부패 방지 공직자 윤리 3.0 정책방안 세미나 안내</a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.06.15</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">234</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">9</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none;">블록체인 기반 사회의 도래와 법학의 과제 학술대회</a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.04.20</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">298</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">8</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none;">연성규범의 법치주의에 대한 도전과 공법적 과제 세미나</a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.02.25</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">267</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination -->
-            <div style="display: flex; justify-content: center; gap: 4px; padding: 24px;">
-              <button style="width: 32px; height: 32px; border: none; border-radius: 6px; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; cursor: pointer; font-size: 13px; font-weight: 600;">1</button>
-              <button style="width: 32px; height: 32px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; cursor: pointer; font-size: 13px; color: #475569;">2</button>
+            <!-- Board Content -->
+            <div style="padding: 0;">
+              <div class="iframe-wrapper board-page">
+                <div class="iframe-loader">
+                  <div class="iframe-spinner"></div>
+                  <span>게시판 로딩중...</span>
+                </div>
+                <iframe 
+                  src="https://lawi.sookmyung.ac.kr/wiz/contents/board/board.php?home_id=lawlab&handle=1" 
+                  style="width: 100%; height: 700px; border: none;"
+                  title="공지사항 게시판"
+                  scrolling="auto"
+                  allowtransparency="true"
+                  loading="eager"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
       `,
+
 
       freeboard: `
         <!-- Sub Hero Banner -->
@@ -2919,132 +3004,34 @@
         <div class="content-wrapper">
           <div class="content-card">
             <!-- Board Header -->
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; gap: 16px;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid #e2e8f0;">
               <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #a78bfa); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
+                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #059669, #10b981); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                   </svg>
                 </div>
                 <div>
                   <h3 style="font-size: 18px; font-weight: 700; color: #1e293b;">자유게시판</h3>
-                  <p style="font-size: 13px; color: #64748b; margin-top: 2px;">총 <strong>6</strong>개의 게시물이 있습니다</p>
                 </div>
               </div>
-              <button style="padding: 10px 20px; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
-                  <line x1="12" y1="5" x2="12" y2="19"/>
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                </svg>
-                글쓰기
-              </button>
             </div>
-
-            <!-- Board Table -->
-            <div class="content-body" style="padding: 0;">
-              <table style="width: 100%; border-collapse: collapse;">
-                <thead style="background: #f8fafc;">
-                  <tr>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">번호</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: left;">제목</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">작성자</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">등록일</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">조회</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">6</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        청파법학 투고 경험 공유합니다
-                        <span style="background: #ef4444; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">김**</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.12.18</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">45</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">5</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        AI 세미나 참석 후기 남깁니다
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">이**</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.11.25</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">89</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">4</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        법학연구소 학술대회 참석 문의드립니다
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">박**</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.10.05</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">67</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">3</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        한중법학회 공동학술대회 후기
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">정**</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.07.02</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">156</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">2</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        법학연구소 방문 후기입니다
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">최**</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.05.20</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">203</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">1</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        자유게시판이 개설되었습니다
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.03.01</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">345</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination -->
-            <div style="display: flex; justify-content: center; gap: 4px; padding: 24px;">
-              <button style="width: 32px; height: 32px; border: none; border-radius: 6px; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; cursor: pointer; font-size: 13px; font-weight: 600;">1</button>
+            <!-- Board Content -->
+            <div style="padding: 0;">
+              <div class="iframe-wrapper board-page">
+                <div class="iframe-loader">
+                  <div class="iframe-spinner"></div>
+                  <span>게시판 로딩중...</span>
+                </div>
+                <iframe 
+                  src="https://lawi.sookmyung.ac.kr/wiz/contents/board/board.php?home_id=lawlab&handle=2" 
+                  style="width: 100%; height: 700px; border: none;"
+                  title="자유게시판"
+                  scrolling="auto"
+                  allowtransparency="true"
+                  loading="eager"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
@@ -3081,206 +3068,39 @@
           </nav>
         </div>
 
+ 
         <!-- Content Area -->
         <div class="content-wrapper">
           <div class="content-card">
             <!-- Board Header -->
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; gap: 16px;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid #e2e8f0;">
               <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #0891b2, #22d3ee); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
+                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #7c3aed, #8b5cf6); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
-                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                    <polyline points="13,2 13,9 20,9"/>
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
                   </svg>
                 </div>
                 <div>
                   <h3 style="font-size: 18px; font-weight: 700; color: #1e293b;">자료실</h3>
-                  <p style="font-size: 13px; color: #64748b; margin-top: 2px;">총 <strong>10</strong>개의 자료가 있습니다</p>
                 </div>
               </div>
             </div>
-
-            <!-- Board Table -->
-            <div class="content-body" style="padding: 0;">
-              <table style="width: 100%; border-collapse: collapse;">
-                <thead style="background: #f8fafc;">
-                  <tr>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">번호</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: left;">제목</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">작성자</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">등록일</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">조회</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">10</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        2024년 법학연구소 연간보고서
-                        <span style="background: #ef4444; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N</span>
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PDF</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.12.20</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">78</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">9</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        AI 규제와 기본권 보호 세미나 발표자료
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PPT</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.11.22</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">156</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">8</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        사회적 약자 보호 학술대회 자료집
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PDF</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.10.18</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">234</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">7</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        청파법학 제26호 전문 (PDF)
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PDF</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.06.30</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">312</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">6</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        부패 방지 공직자 윤리 3.0 세미나 자료
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PPT</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.06.21</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">189</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">5</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        블록체인 기반 사회와 법학의 과제 발표자료
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PDF</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.04.29</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">267</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">4</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        연성규범과 법치주의 세미나 발표자료
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PPT</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.03.04</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">198</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">3</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        청파법학 제25호 전문 (PDF)
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PDF</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.12.30</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">345</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">2</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        미래사회를 대비하는 법적 과제 학술대회 자료집
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PDF</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.10.10</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">387</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">1</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                          <polyline points="13,2 13,9 20,9"/>
-                        </svg>
-                        한중법학회 공동학술대회 발표자료
-                        <span style="background: #0891b2; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">ZIP</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">관리자</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.06.26</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">423</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination -->
-            <div style="display: flex; justify-content: center; gap: 4px; padding: 24px;">
-              <button style="width: 32px; height: 32px; border: none; border-radius: 6px; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; cursor: pointer; font-size: 13px; font-weight: 600;">1</button>
+            <!-- Board Content -->
+            <div style="padding: 0;">
+              <div class="iframe-wrapper board-page">
+                <div class="iframe-loader">
+                  <div class="iframe-spinner"></div>
+                  <span>게시판 로딩중...</span>
+                </div>
+                <iframe 
+                  src="https://lawi.sookmyung.ac.kr/wiz/contents/board/board.php?home_id=lawlab&handle=3" 
+                  style="width: 100%; height: 700px; border: none;"
+                  title="자료실 게시판"
+                  scrolling="auto"
+                  allowtransparency="true"
+                  loading="eager"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
@@ -3685,14 +3505,21 @@
 
                     <div style="margin: 16px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
                       <p style="font-weight: 600; color: #1e40af; margin-bottom: 8px;">6) 판례인용</p>
-                      <p>대법원과 헌법재판소 양식에 준하여 작성한다.</p>
+                      <p>판례인용은 다음과 같이 대법원과 헌법재판소의 양식에 준하여 작성한다.</p>
                       <div style="margin-top: 8px; padding: 12px; background: white; border-radius: 6px; font-family: monospace; font-size: 13px;">
-                        <strong style="color: #1e40af;">국내:</strong> 대법원 19OO. OO. OO. 선고 OO누OO 판결<br>
-                        <strong style="color: #1e40af;">외국:</strong> Branzburg v. Hayes, 408 U.S. 665, 667 (1972).
+                        <strong style="color: #1e40af;">판결:</strong> 대법원 19OO. OO. OO. 선고 OO 누 OO 판결<br>
+                        <strong style="color: #1e40af;">결정:</strong> 대법원 19OO. OO. OO. 자 OO 두 OO 결정<br>
+                        <strong style="color: #1e40af;">결정:</strong> 헌재 19OO. OO. OO. OO 헌가 OO 결정
+                      </div>
+                      <p style="margin-top: 12px;">단, 외국의 판례를 인용할 경우에는 각국의 표준적인 판례 인용 예에 의한다.</p>
+                      <div style="margin-top: 8px; padding: 12px; background: white; border-radius: 6px; font-family: monospace; font-size: 13px;">
+                        <strong style="color: #1e40af;">예시:</strong><br>
+                        Branzburg v. Hayes, 408 U. S. 665, 667 (1972).<br>
+                        BVerfGE 39, 390 (401f).
                       </div>
                     </div>
 
-                    <p style="margin-top: 16px;">(2) 국문 저서는 『 』, 논문은 " "로 표시. 로마자 저서는 이탤릭체, 논문은 " "로 표시.</p>
+                    <p style="margin-top: 16px;">(2) 국문 또는 한자로 표시되는 저서는 『 』로 표시하고, 논문은 " "로 표시하며, 로마자로 표기되는 저서는 이탤릭체로 표시하고, 논문은 " "로 표시한다.</p>
                   </div>
                 </div>
 
@@ -3702,18 +3529,241 @@
                     참고문헌의 표기
                   </h5>
                   <div style="font-size: 14px; color: #475569; line-height: 1.8; padding-left: 30px;">
-                    <p>(1) 본문과 각주에서 언급된 것에 한해 표기한다.</p>
-                    <p>(2) 저자명, 서명, 출판사, 권, 년도 사이에는 마침표를 찍는다.</p>
-                    <p>(3) 동일 저자의 여러 문헌은 연도순으로, 같은 해 문헌은 a, b, c로 구분한다.</p>
-                    <p>(4) 논문·학위논문은 " ", 저서는 『 』로 표시한다.</p>
-                    <p>(5) 인터넷자료: 제작자, 제작년도, 주제명, 웹주소, (검색일자) 순서로 표기.</p>
-                    <p>(6) 국내문헌(가나다순), 외국문헌(동양→서양, 알파벳순) 순서로 기재.</p>
+                    <p>(1) 참고문헌은 본문과 각주에서 언급된 것에 한해 표기한다. 본문과 각주에서 언급된 모든 문헌의 정보는 논문후단의 참고문헌에 명시한다.</p>
+                    <p style="margin-top: 8px;">(2) 저자명, 서명(또는 논문제목), 출판사(또는 간행물명), 권(또는 Vol.), 년도 등의 사이에는 마침표를 찍는다. 출판사 소재도시와 출판사 이름 사이에 콜론(:)을 찍고 한 칸 띄어 쓴다.</p>
+                    <p style="margin-top: 8px;">(3) 동일한 저자의 여러 문헌은 연도순으로 배치하며, 같은 해에 발행된 문헌이 둘 이상인 경우에는 글에서 언급된 순서에 따라 발행연도 뒤에 a, b, c를 첨가하여 구분한다.</p>
+                    <p style="margin-top: 8px;">(4) 논문, 학위논문, 기사 등은 따옴표(" ")로, 저서는 이중꺽쇠(『 』)로 표시한다. 단행본·저널명과 쪽수 사이에는 쉼표로 구분한다. 단행본이나 잡지에 실린 논문의 경우에는 맨 뒤에 쪽수(숫자만 표기)를 명기한다.</p>
+
+                    <div style="margin: 16px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                      <p style="font-weight: 600; color: #1e40af; margin-bottom: 8px;">❒ 단행본</p>
+                      <div style="padding: 12px; background: white; border-radius: 6px; font-size: 13px; line-height: 1.8;">
+                        한국여성연구소. 『페미니즘연구』. 서울: 동녘, 2004.<br>
+                        Geoffrey S. Trotier. "Law and Inequality". A Journal of Theory &amp; Practice, 2002. http://www.westlawinternational.com/about.htm.
+                      </div>
+                    </div>
+
+                    <div style="margin: 16px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                      <p style="font-weight: 600; color: #1e40af; margin-bottom: 8px;">❒ 번역서</p>
+                      <div style="padding: 12px; background: white; border-radius: 6px; font-size: 13px; line-height: 1.8;">
+                        제인 프리드먼. 2001. 『페미니즘』. 이박혜경역. 서울: 이후, 2002.<br>
+                        Simone de Beauvoir. 1949. 『제2의 성』. 조홍식 역. 서울: 을유문화사, 1993.
+                      </div>
+                    </div>
+
+                    <div style="margin: 16px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                      <p style="font-weight: 600; color: #1e40af; margin-bottom: 8px;">❒ 정기간행물</p>
+                      <div style="padding: 12px; background: white; border-radius: 6px; font-size: 13px; line-height: 1.8;">
+                        이욱한. "차별금지와 실질적 평등권-양성평등을 중심으로-". 『공법학연구』 제6권 제3호. 2005.<br>
+                        Thompson, L. "Family work: Women's sense of fairness." Journal of Family Issues 12. 1991.
+                      </div>
+                    </div>
+
+                    <div style="margin: 16px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                      <p style="font-weight: 600; color: #1e40af; margin-bottom: 8px;">❒ 편저서</p>
+                      <div style="padding: 12px; background: white; border-radius: 6px; font-size: 13px; line-height: 1.8;">
+                        이성은, "섹슈얼리티와 성문화". 『새여성학강의』, 한국여성연구소, 동녘, 2005.<br>
+                        Bograd, M. "Feminist perspectives on wife abuse: An introduction" in K. Yllo &amp; M. Bograd eds. <em>Feminist perspectives on wife abuse</em>. Newbury Park, CA: Sage, 1990.
+                      </div>
+                    </div>
+
+                    <div style="margin: 16px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                      <p style="font-weight: 600; color: #1e40af; margin-bottom: 8px;">❒ 학위논문</p>
+                      <div style="padding: 12px; background: white; border-radius: 6px; font-size: 13px; line-height: 1.8;">
+                        김용화. "성 인지적 관점에서 바라본 성평등 실현에 관한 연구" 숙명여자대학교 박사학위논문. 2006.
+                      </div>
+                    </div>
+
+                    <div style="margin: 16px 0; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                      <p style="font-weight: 600; color: #1e40af; margin-bottom: 8px;">❒ 신문</p>
+                      <div style="padding: 12px; background: white; border-radius: 6px; font-size: 13px; line-height: 1.8;">
+                        Walker, L.A. 1993. "The battered woman." New York Times (July 23), 7.<br>
+                        이지민, "싱글맘 절반이 빈곤층" 『여성신문』 (11월 4일), 2005. 9.
+                      </div>
+                    </div>
+
+                    <p style="margin-top: 16px;">(5) 인터넷자료는 제작자, 제작년도, 주제명, 웹주소, (검색일자) 순서로 표기한다.</p>
+                    <div style="margin: 8px 0 16px; padding: 12px 16px; background: #f8fafc; border-radius: 6px; font-size: 13px; line-height: 1.8;">
+                      <strong style="color: #1e40af;">예시:</strong> 법제처, "종합법령정보", 2007, http://www.moleg.go.kr (검색일 : 2007. 1. 30).
+                    </div>
+
+                    <p>(6) 참고문헌은 국내문헌, 외국문헌(동양문헌, 서양문헌 순) 순서로 기재하고, 국내문헌은 가나다순으로, 서양문헌은 알파벳순으로 기재한다. 기타 외국문헌의 경우 그 나라의 표기 순서에 따른다.</p>
                   </div>
                 </div>
               </div>
 
               <div class="highlight-box" style="margin-top: 32px; padding: 20px; background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(59, 130, 246, 0.1)); border-radius: 12px; border-left: 4px solid #1e40af;">
                 <p style="font-size: 14px; color: #475569;"><strong style="color: #1e40af;">※ 참고사항:</strong> 이상의 집필요령에 명시되지 않은 사항은 『청파법학』 편집위원회의 결정에 따라 수정·보완될 수 있다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+
+      ethics: `
+        <!-- Sub Hero Banner -->
+        <section class="sub-hero">
+          <div class="sub-hero-content">
+            <h1 class="sub-hero-title">전인적 품성과 창의적 지성을 갖춘 글로벌 리더 육성</h1>
+            <p class="sub-hero-desc">세상을 바꾸는 부드러운 힘, 숙명</p>
+          </div>
+        </section>
+
+        <!-- Page Header -->
+        <div class="page-header">
+          <div class="page-title-section">
+            <div class="page-title-bar"></div>
+            <h2 class="page-title">연구윤리규정</h2>
+          </div>
+          
+          <nav class="breadcrumb">
+            <a onclick="navigateTo('home')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+              HOME
+            </a>
+            <span class="breadcrumb-sep">::</span>
+            <span>학술지 청파법학</span>
+            <span class="breadcrumb-sep">&gt;</span>
+            <span class="breadcrumb-current">연구윤리규정</span>
+          </nav>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-wrapper">
+          <div class="content-card">
+            <div class="content-body">
+              <!-- 타이틀 -->
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 2px solid #1e40af;">
+                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 style="font-size: 20px; font-weight: 800; color: #1e293b;">연구윤리규정</h3>
+                  <p style="font-size: 14px; color: #64748b; margin-top: 2px;">Research Ethics Regulations</p>
+                </div>
+              </div>
+
+              <!-- 제1장 총칙 -->
+              <div style="margin-bottom: 32px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                  <span style="display: inline-block; padding: 6px 14px; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; font-size: 13px; font-weight: 700; border-radius: 6px;">제 1 장</span>
+                  <h4 style="font-size: 18px; font-weight: 700; color: #1e293b;">총 칙</h4>
+                </div>
+                <div style="padding-left: 16px; font-size: 14px; color: #475569; line-height: 1.9;">
+                  <div style="margin-bottom: 16px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #1e40af; margin-bottom: 8px;">제1조 (목적)</h5>
+                    <p>본 연구윤리규정(이하 윤리규정)은 『청파법학』에 게재되는 논문의 연구윤리와 진실성을 확보하고 연구부정행위 발생 시 공정하고 체계적으로 검증·제재할 수 있는 원칙과 기준을 규정함을 목적으로 한다.</p>
+                  </div>
+                  <div style="margin-bottom: 16px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #1e40af; margin-bottom: 8px;">제2조 (적용대상)</h5>
+                    <p>이 규정은 『청파법학』에 논문을 투고하는 모든 연구활동 종사자에 대하여 적용한다.</p>
+                  </div>
+                  <div style="margin-bottom: 16px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #1e40af; margin-bottom: 8px;">제3조 (적용범위)</h5>
+                    <p>연구윤리 검증과 관련하여 다른 특별한 규정이 있는 경우를 제외하고는 이 규정에 의한다.</p>
+                  </div>
+                  <div style="padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #1e40af; margin-bottom: 8px;">제4조 (윤리규정 서약)</h5>
+                    <p>『청파법학』이 학술지 원고모집을 공고할 때 혹은 연구자가 논문을 투고하였을 때 윤리규정을 함께 공시하여야 하며, 연구자가 논문을 투고한 시점에 이 규정을 준수하기로 서약한 것으로 본다.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 제2장 연구윤리 위반 규정 -->
+              <div style="margin-bottom: 32px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                  <span style="display: inline-block; padding: 6px 14px; background: linear-gradient(135deg, #dc2626, #ef4444); color: white; font-size: 13px; font-weight: 700; border-radius: 6px;">제 2 장</span>
+                  <h4 style="font-size: 18px; font-weight: 700; color: #1e293b;">연구윤리 위반 규정</h4>
+                </div>
+                <div style="padding-left: 16px; font-size: 14px; color: #475569; line-height: 1.9;">
+                  <div style="margin-bottom: 16px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #ef4444;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #dc2626; margin-bottom: 8px;">제5조 (위·변조 및 표절 정의)</h5>
+                    <p style="margin-bottom: 12px;">연구부정행위(이하 부정행위)라 함은 연구의 제안, 연구의 수행, 연구논문의 투고 및 게재 등에서 행하여진 위조·변조·표절 행위 등을 말하며, 다음 각 호에 해당되는 경우 위변조 및 표절로 간주한다.</p>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                      <div style="display: flex; gap: 10px; padding: 10px 14px; background: white; border-radius: 6px; border: 1px solid #fecaca;">
+                        <span style="display: inline-block; padding: 2px 8px; background: #dc2626; color: white; font-size: 11px; font-weight: 700; border-radius: 4px; white-space: nowrap; height: fit-content;">위조</span>
+                        <span>존재하지 않는 데이터 또는 연구결과 등을 허위로 만들어 내는 경우</span>
+                      </div>
+                      <div style="display: flex; gap: 10px; padding: 10px 14px; background: white; border-radius: 6px; border: 1px solid #fecaca;">
+                        <span style="display: inline-block; padding: 2px 8px; background: #dc2626; color: white; font-size: 11px; font-weight: 700; border-radius: 4px; white-space: nowrap; height: fit-content;">변조</span>
+                        <span>연구 재료·장비·과정 등을 인위적으로 조작하거나 데이터를 임의로 변형·삭제함으로써 연구 내용 또는 결과를 왜곡하는 경우</span>
+                      </div>
+                      <div style="display: flex; gap: 10px; padding: 10px 14px; background: white; border-radius: 6px; border: 1px solid #fecaca;">
+                        <span style="display: inline-block; padding: 2px 8px; background: #dc2626; color: white; font-size: 11px; font-weight: 700; border-radius: 4px; white-space: nowrap; height: fit-content;">표절</span>
+                        <span>타인의 아이디어, 연구내용 및 결과 등을 정당한 승인 또는 인용 없이 도용하는 경우</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #ef4444;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #dc2626; margin-bottom: 8px;">제6조 (논문의 중복게재 정의)</h5>
+                    <p style="margin-bottom: 8px;">다음 각 호에 해당되는 경우 중복게재로 간주한다.</p>
+                    <p style="padding-left: 12px;">(1) 이전에 출판된 연구자 자신의 논문(게재 예정이거나 심사 중인 논문 포함)을 새로운 논문인 것처럼 투고한 경우</p>
+                    <p style="padding-left: 12px;">(2) 타 학술지 게재를 이유로 심사철회를 요청한 경우</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 제3장 연구윤리 위반 판정 -->
+              <div style="margin-bottom: 32px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                  <span style="display: inline-block; padding: 6px 14px; background: linear-gradient(135deg, #d97706, #f59e0b); color: white; font-size: 13px; font-weight: 700; border-radius: 6px;">제 3 장</span>
+                  <h4 style="font-size: 18px; font-weight: 700; color: #1e293b;">연구윤리 위반 판정</h4>
+                </div>
+                <div style="padding-left: 16px; font-size: 14px; color: #475569; line-height: 1.9;">
+                  <div style="margin-bottom: 16px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #f59e0b;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #d97706; margin-bottom: 8px;">제7조 (판정주체)</h5>
+                    <p style="margin-bottom: 8px;">판정이라 함은 부정행위의 조사 결과를 확정하고 이를 제보자와 연구자에게 문서로써 통보하는 절차를 말하며, 판정의 주체는 각 호에 따른다.</p>
+                    <p style="padding-left: 12px;">(1) 편집위원회는 부정행위에 대한 최종 판정권을 가지며, 심사위원의 검토, 독자의 제보 또는 자체 판단에 따라 부정행위 여부를 검토하고 판정한다.</p>
+                    <p style="padding-left: 12px;">(2) 윤리규정 위반 여부는 편집위원의 과반수 참석 및 참석자 2/3 이상의 찬성으로 의결한다.</p>
+                    <p style="padding-left: 12px;">(3) 윤리규정 위반 여부의 1차 검토는 해당 논문 심사위원 3인에게 위임한다.</p>
+                  </div>
+                  <div style="margin-bottom: 16px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #f59e0b;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #d97706; margin-bottom: 8px;">제8조 (편집위원회의 권한)</h5>
+                    <p style="padding-left: 12px;">(1) 편집위원회는 윤리규정 위반으로 보고된 사안에 대하여 제보자, 연구자, 심사위원, 참고인 및 증거자료 등을 통하여 부정행위 여부를 검토·판단하고, 그 결과를 운영위원회에 보고한다.</p>
+                    <p style="padding-left: 12px;">(2) 제5조 혹은 제6조 위반이 사실로 판정된 경우 편집위원회는 합당한 제재 조치를 취할 수 있다.</p>
+                  </div>
+                  <div style="padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #f59e0b;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #d97706; margin-bottom: 8px;">제9조 (편집위원회의 의무)</h5>
+                    <p style="padding-left: 12px;">(1) 해당 윤리규정 위반 사안과 이해갈등 관계가 있는 편집위원을 판정 과정에 포함시켜서는 안 된다.</p>
+                    <p style="padding-left: 12px;">(2) 편집위원회는 윤리규정 위반이 보고되었을 때 그 사실을 해당 논문의 연구자에게 통보하고 충분한 소명 기회를 주어야 한다.</p>
+                    <p style="padding-left: 12px;">(3) 윤리규정 위반에 대한 편집위원회의 최종적인 결정이 내려질 때까지 편집위원은 해당 연구자 혹은 제보자의 신원 및 정보를 외부에 공개해서는 안 된다.</p>
+                    <p style="padding-left: 12px;">(4) 부정행위 의혹에 대한 연구자의 소명이 없을 경우 편집위원회는 해당 논문을 부정행위로 최종 판정한다.</p>
+                    <p style="padding-left: 12px;">(5) 부정행위 의혹에 대한 연구자의 이의제기가 있을 경우 편집위원회는 편집위원의 과반수 참석 및 참석자 2/3 이상의 찬성으로 윤리규정 위반 여부를 최종 판정한다.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 제4장 연구윤리 위반 제재 -->
+              <div style="margin-bottom: 32px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                  <span style="display: inline-block; padding: 6px 14px; background: linear-gradient(135deg, #7c3aed, #8b5cf6); color: white; font-size: 13px; font-weight: 700; border-radius: 6px;">제 4 장</span>
+                  <h4 style="font-size: 18px; font-weight: 700; color: #1e293b;">연구윤리 위반 제재</h4>
+                </div>
+                <div style="padding-left: 16px; font-size: 14px; color: #475569; line-height: 1.9;">
+                  <div style="margin-bottom: 16px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #8b5cf6;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #7c3aed; margin-bottom: 8px;">제10조 (위·변조 및 표절 제재)</h5>
+                    <p style="padding-left: 12px;">(1) 편집위원회에 의해 최종적으로 위변조 및 표절 판정을 받은 논문의 연구자는 판정 후 3년간 단독 혹은 공동으로 『청파법학』에 논문게재를 신청할 수 없다.</p>
+                    <p style="padding-left: 12px;">(2) 논문게재 이후 위·변조 및 표절 판정을 받은 논문은 『청파법학』의 공식적인 논문 목록에서 삭제한다.</p>
+                    <p style="padding-left: 12px;">(3) 논문게재 이후 위·변조 및 표절 판정을 받은 논문은 이후 발간되는 첫 『청파법학』과 법학연구소 홈페이지에 윤리규정 위반 사실을 공지한다.</p>
+                    <p style="padding-left: 12px;">(4) 편집위원회는 위변조 및 표절 사안의 절차가 모두 완료된 후 30일 이내에 판정과 제재 조치에 관련된 세부사항을 한국학술진흥재단 및 연구업적 관리기관 등에 통보한다.</p>
+                  </div>
+                  <div style="padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #8b5cf6;">
+                    <h5 style="font-size: 15px; font-weight: 700; color: #7c3aed; margin-bottom: 8px;">제11조 (논문의 중복게재 제재)</h5>
+                    <p style="padding-left: 12px;">(1) 제6조 (1)에 해당되는 논문은 『청파법학』에 게재 신청할 수 없다.</p>
+                    <p style="padding-left: 12px;">(2) 중복게재 신청된 것으로 판정된 논문은 즉시 심사에서 제외되며 연구자는 2년간 단독 혹은 공동으로 『청파법학』에 논문게재를 신청할 수 없다.</p>
+                    <p style="padding-left: 12px;">(3) 『청파법학』에 기 출간된 논문을 재출간할 경우 원 출처를 반드시 밝혀야 한다.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 부칙 -->
+              <div class="highlight-box" style="margin-top: 32px; padding: 20px; background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(59, 130, 246, 0.1)); border-radius: 12px; border-left: 4px solid #1e40af;">
+                <h5 style="font-size: 15px; font-weight: 700; color: #1e40af; margin-bottom: 8px;">부 칙</h5>
+                <p style="font-size: 14px; color: #475569;">본 연구윤리규정은 편집위원회의 의결을 거쳐 승인을 얻은 후 <strong>2008년 9월 1일</strong>부터 효력을 지닌다.</p>
               </div>
             </div>
           </div>
@@ -3892,8 +3942,7 @@
         <!-- Content Area -->
         <div class="content-wrapper">
           <div class="content-card">
-            <!-- Board Header -->
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; gap: 16px;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid #e2e8f0;">
               <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
@@ -3903,210 +3952,29 @@
                 </div>
                 <div>
                   <h3 style="font-size: 18px; font-weight: 700; color: #1e293b;">학술자료</h3>
-                  <p style="font-size: 13px; color: #64748b; margin-top: 2px;">총 <strong>24</strong>개의 자료가 있습니다</p>
                 </div>
               </div>
             </div>
-
-            <!-- Board Table -->
-            <div class="content-body" style="padding: 0;">
-              <table style="width: 100%; border-collapse: collapse;">
-                <thead style="background: #f8fafc;">
-                  <tr>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">번호</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: left;">제목</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">작성자</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">등록일</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">조회</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">24</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        2024년 법학연구소 연구보고서
-                        <span style="background: #ef4444; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.12.15</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">128</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">23</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        AI 규제와 기본권 보호 세미나 자료집
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.11.20</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">256</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">22</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        사회적 약자 보호를 위한 법적 과제 학술대회 발표자료
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.10.18</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">312</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">21</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        부패 방지 공직자 윤리 3.0 정책방안 연구
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.06.21</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">189</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">20</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        블록체인 기반 사회의 도래와 법학의 과제
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.04.29</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">245</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">19</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        연성규범의 법치주의에 대한 도전과 공법적 과제
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.03.04</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">198</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">18</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        2023년 법학연구소 연간 활동 보고서
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.02.14</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">167</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">17</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        미래사회를 대비하는 법적 과제 학술대회 자료
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.10.10</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">342</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">16</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        고령사회에 있어서 가족법의 대응 연구자료
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.09.02</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">276</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">15</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                          <polyline points="14,2 14,8 20,8"/>
-                        </svg>
-                        한중법학회-숙명여자대학교 법학연구소 공동학술대회 자료집
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.06.26</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">298</td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <!-- Pagination -->
-              <div style="display: flex; justify-content: center; align-items: center; gap: 4px; padding: 24px;">
-                <button style="width: 32px; height: 32px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" style="width: 16px; height: 16px;">
-                    <polyline points="11 17 6 12 11 7"/>
-                    <polyline points="18 17 13 12 18 7"/>
-                  </svg>
-                </button>
-                <button style="width: 32px; height: 32px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" style="width: 16px; height: 16px;">
-                    <polyline points="15 18 9 12 15 6"/>
-                  </svg>
-                </button>
-                <button style="width: 32px; height: 32px; border: none; border-radius: 6px; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; cursor: pointer; font-size: 13px; font-weight: 600;">1</button>
-                <button style="width: 32px; height: 32px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; cursor: pointer; font-size: 13px; color: #475569;">2</button>
-                <button style="width: 32px; height: 32px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; cursor: pointer; font-size: 13px; color: #475569;">3</button>
-                <button style="width: 32px; height: 32px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" style="width: 16px; height: 16px;">
-                    <polyline points="9 18 15 12 9 6"/>
-                  </svg>
-                </button>
-                <button style="width: 32px; height: 32px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" style="width: 16px; height: 16px;">
-                    <polyline points="13 17 18 12 13 7"/>
-                    <polyline points="6 17 11 12 6 7"/>
-                  </svg>
-                </button>
+            <div style="padding: 0;">
+              <div class="iframe-wrapper board-page">
+                <div class="iframe-loader">
+                  <div class="iframe-spinner"></div>
+                  <span>게시판 로딩중...</span>
+                </div>
+                <iframe 
+                  src="https://lawi.sookmyung.ac.kr/wiz/contents/board/board.php?home_id=lawlab&handle=5" 
+                  style="width: 100%; height: 700px; border: none;"
+                  title="학술자료 게시판"
+                  scrolling="auto"
+                  allowtransparency="true"
+                  loading="eager"
+                ></iframe>
               </div>
             </div>
           </div>
         </div>
       `,
+
 
       'resources-etc': `
         <!-- Sub Hero Banner -->
@@ -4139,11 +4007,11 @@
           </nav>
         </div>
 
+
         <!-- Content Area -->
         <div class="content-wrapper">
           <div class="content-card">
-            <!-- Board Header -->
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; gap: 16px;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid #e2e8f0;">
               <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #059669, #10b981); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
@@ -4152,148 +4020,29 @@
                 </div>
                 <div>
                   <h3 style="font-size: 18px; font-weight: 700; color: #1e293b;">기타자료</h3>
-                  <p style="font-size: 13px; color: #64748b; margin-top: 2px;">총 <strong>8</strong>개의 자료가 있습니다</p>
                 </div>
               </div>
             </div>
-
-            <!-- Board Table -->
-            <div class="content-body" style="padding: 0;">
-              <table style="width: 100%; border-collapse: collapse;">
-                <thead style="background: #f8fafc;">
-                  <tr>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">번호</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: left;">제목</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">작성자</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">등록일</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">조회</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">8</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        2024년 법학연구소 홍보 브로셔
-                        <span style="background: #ef4444; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.12.20</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">85</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">7</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        법학연구소 로고 및 CI 가이드라인
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.09.15</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">124</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">6</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        학술지 「청파법학」 투고 양식
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.06.01</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">278</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">5</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        연구윤리규정 안내
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.03.20</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">156</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">4</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        법학연구소 포토 갤러리 (2023 학술대회)
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.11.25</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">203</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">3</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        법학연구소 연구원 모집 안내
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.08.10</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">312</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">2</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        법학연구소 오시는 길 안내
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.03.05</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">445</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">1</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-                        </svg>
-                        법학연구소 소개 리플릿
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법학연구소</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2022.09.01</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">587</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination -->
-            <div style="display: flex; justify-content: center; gap: 4px; padding: 24px;">
-              <button style="width: 32px; height: 32px; border: none; border-radius: 6px; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; cursor: pointer; font-size: 13px; font-weight: 600;">1</button>
+            <div style="padding: 0;">
+              <div class="iframe-wrapper board-page">
+                <div class="iframe-loader">
+                  <div class="iframe-spinner"></div>
+                  <span>게시판 로딩중...</span>
+                </div>
+                <iframe 
+                  src="https://lawi.sookmyung.ac.kr/wiz/contents/board/board.php?home_id=lawlab&handle=4" 
+                  style="width: 100%; height: 700px; border: none;"
+                  title="기타자료 게시판"
+                  scrolling="auto"
+                  allowtransparency="true"
+                  loading="eager"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
       `,
+
 
       press: `
         <!-- Sub Hero Banner -->
@@ -4326,11 +4075,12 @@
           </nav>
         </div>
 
+
+
         <!-- Content Area -->
         <div class="content-wrapper">
           <div class="content-card">
-            <!-- Board Header -->
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; gap: 16px;">
+            <div style="padding: 20px 24px; border-bottom: 1px solid #e2e8f0;">
               <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #dc2626, #ef4444); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
@@ -4339,178 +4089,45 @@
                 </div>
                 <div>
                   <h3 style="font-size: 18px; font-weight: 700; color: #1e293b;">언론보도자료</h3>
-                  <p style="font-size: 13px; color: #64748b; margin-top: 2px;">총 <strong>12</strong>개의 자료가 있습니다</p>
                 </div>
               </div>
             </div>
-
-            <!-- Board Table -->
-            <div class="content-body" style="padding: 0;">
-              <table style="width: 100%; border-collapse: collapse;">
-                <thead style="background: #f8fafc;">
-                  <tr>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">번호</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: left;">제목</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 120px;">언론사</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 100px;">보도일</th>
-                    <th style="padding: 14px 16px; font-size: 13px; font-weight: 600; color: #475569; text-align: center; width: 60px;">조회</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">12</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [법률신문] 숙명여대 법학연구소, AI 규제와 기본권 보호 세미나 개최
-                        <span style="background: #ef4444; color: white; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N</span>
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법률신문</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.11.22</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">156</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">11</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [대학저널] 숙명여대 법학연구소, 사회적 약자 보호 학술대회 성료
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">대학저널</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.10.20</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">198</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">10</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [연합뉴스] 숙명여대 법학연구소 우병창 신임 소장 취임
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">연합뉴스</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.09.02</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">287</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">9</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [법률저널] 블록체인 기반 사회와 법학의 과제 세미나 개최
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법률저널</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.05.02</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">234</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">8</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [한국법학원] 숙명여대 법학연구소, 연성규범과 법치주의 학술대회
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">한국법학원</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.03.06</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">189</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">7</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [법률신문] 청파법학 제25권 발간, AI·디지털 법제 특집호
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법률신문</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2024.02.20</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">267</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">6</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [대학저널] 미래사회 대비 법적 과제 학술대회 성황리 개최
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">대학저널</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.10.12</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">312</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">5</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [연합뉴스] 숙명여대 법학연구소-한중법학회 공동학술대회
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">연합뉴스</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.06.28</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">345</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">4</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [법률저널] 고령사회 가족법 대응 연구 세미나 개최
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">법률저널</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.09.05</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">278</td>
-                  </tr>
-                  <tr>
-                    <td style="padding: 14px 16px; font-size: 14px; color: #64748b; text-align: center;">3</td>
-                    <td style="padding: 14px 16px;">
-                      <a href="#" style="font-size: 14px; color: #1e293b; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width: 16px; height: 16px;">
-                          <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2"/>
-                        </svg>
-                        [한국법학원] 여성법률가 양성 프로그램 우수사례로 선정
-                      </a>
-                    </td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">한국법학원</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">2023.05.15</td>
-                    <td style="padding: 14px 16px; font-size: 13px; color: #64748b; text-align: center;">401</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination -->
-            <div style="display: flex; justify-content: center; gap: 4px; padding: 24px;">
-              <button style="width: 32px; height: 32px; border: none; border-radius: 6px; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; cursor: pointer; font-size: 13px; font-weight: 600;">1</button>
-              <button style="width: 32px; height: 32px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; cursor: pointer; font-size: 13px; color: #475569;">2</button>
+            <div style="padding: 0;">
+              <div class="iframe-wrapper board-page">
+                <div class="iframe-loader">
+                  <div class="iframe-spinner"></div>
+                  <span>게시판 로딩중...</span>
+                </div>
+                <iframe 
+                  src="https://lawi.sookmyung.ac.kr/wiz/contents/recommend/recommend.php?home_id=lawlab&handle=1" 
+                  style="width: 100%; height: 700px; border: none;"
+                  title="언론보도자료"
+                  scrolling="auto"
+                  allowtransparency="true"
+                  loading="eager"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
-      `
+      `  
     };
+
+    // iframe 로딩 스피너 처리
+    function attachIframeLoaders() {
+      document.querySelectorAll('.iframe-wrapper iframe').forEach(function(iframe) {
+        var loader = iframe.previousElementSibling;
+        if (loader && loader.classList.contains('iframe-loader')) {
+          iframe.addEventListener('load', function() {
+            loader.classList.add('hidden');
+          });
+          // 8초 타임아웃 fallback
+          setTimeout(function() {
+            loader.classList.add('hidden');
+          }, 8000);
+        }
+      });
+    }
 
     // Navigation Function
     function navigateTo(page) {
@@ -4518,6 +4135,7 @@
         document.getElementById('main-content').innerHTML = pages[page];
         window.location.hash = page;
         window.scrollTo(0, 0);
+        attachIframeLoaders();
       }
     }
 
@@ -4535,6 +4153,7 @@
       } else {
         document.getElementById('main-content').innerHTML = pages['home'];
       }
+      attachIframeLoaders();
     }
 
     // Initialize
@@ -4542,10 +4161,12 @@
     window.addEventListener('load', handleHashChange);
 
     // Scroll Effect for Header
+
+    // Scroll Effect for Header
     window.addEventListener('scroll', function() {
-      const header = document.getElementById('header');
+      const header = document.querySelector('.header');
       if (window.scrollY > 50) {
-        header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.08)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
       } else {
         header.style.boxShadow = 'none';
       }
