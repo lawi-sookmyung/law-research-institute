@@ -1644,6 +1644,11 @@
       handleHashChange();
     });
 
+    // Navigation function
+    function navigateTo(page) {
+      window.location.hash = page;
+    }
+
     window.addEventListener('hashchange', handleHashChange);
 
     // Auth Functions
