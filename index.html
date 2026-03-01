@@ -523,6 +523,49 @@
       padding: 40px 24px 60px;
     }
 
+    .content-wrapper {
+      padding: 32px;
+      margin: 0 auto;
+    }
+
+    .content-card {
+      background: white;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+
+    .content-body {
+      padding: 40px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #1e293b;
+      margin: 0 0 24px;
+    }
+
+    .section-title-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .section-title-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
     /* Content Grid */
     .content-grid {
       display: grid;
@@ -2852,21 +2895,29 @@
 
     function getSubmissionPage() {
       return `
-        <section class="sub-hero">
-          <div class="sub-hero-content">
+        <!-- Sub Hero Banner -->
+        <section class="sub-hero"> 
+          <div class="sub-hero-content"> 
             <h1 class="sub-hero-title">전인적 품성과 창의적 지성을 갖춘 글로벌 리더 육성</h1>
             <p class="sub-hero-desc">세상을 바꾸는 부드러운 힘, 숙명</p>
           </div>
         </section>
 
-        <div class="page-header">
+        <!-- Page Header -->
+        <div class="page-header"> 
           <div class="page-title-section">
             <div class="page-title-bar"></div>
             <h2 class="page-title">논문게재신청서</h2>
           </div>
           
-          <nav class="breadcrumb">
-            <a onclick="navigateTo('home')">HOME</a>
+          <nav class="breadcrumb"> 
+            <a onclick="navigateTo('home')"> 
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> 
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+              HOME
+            </a>
             <span class="breadcrumb-sep">::</span>
             <span>학술지 청파법학</span>
             <span class="breadcrumb-sep">&gt;</span>
@@ -2874,62 +2925,105 @@
           </nav>
         </div>
 
-        <div style="padding: 32px; max-width: 1200px; margin: 0 auto;">
-          <div style="background: white; border-radius: 16px; border: 1px solid rgba(0, 0, 0, 0.06); padding: 40px;">
-            <div style="background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(59, 130, 246, 0.05)); padding: 24px; border-radius: 12px; margin-bottom: 32px;">
-              <h3 style="font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">논문 투고 안내</h3>
-              <p style="margin: 0; font-size: 15px; color: #475569; line-height: 1.8;">
-                「청파법학」에 논문을 투고하시려면 아래 항목을 작성하신 후, 논문 파일과 함께 
-                <strong style="color: #1e40af;">lawi@sookmyung.ac.kr</strong>로 보내주시기 바랍니다.
-              </p>
-            </div>
-
-            <div style="border: 2px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-              <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 20px; text-align: center;">
-                <h3 style="font-size: 22px; font-weight: 800; margin: 0;">「청파법학」 논문게재신청서</h3>
-              </div>
-
-              <div style="padding: 32px;">
-                <table style="width: 100%; border-collapse: collapse;">
-                  <tr style="border-bottom: 1px solid #e2e8f0;">
-                    <td style="padding: 16px; background: #f8fafc; font-weight: 600; width: 180px;">논문 제목 (국문)</td>
-                    <td style="padding: 16px;"></td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #e2e8f0;">
-                    <td style="padding: 16px; background: #f8fafc; font-weight: 600;">논문 제목 (영문)</td>
-                    <td style="padding: 16px;"></td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #e2e8f0;">
-                    <td style="padding: 16px; background: #f8fafc; font-weight: 600;">저자명 (국문)</td>
-                    <td style="padding: 16px;"></td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #e2e8f0;">
-                    <td style="padding: 16px; background: #f8fafc; font-weight: 600;">소속 및 직위</td>
-                    <td style="padding: 16px;"></td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #e2e8f0;">
-                    <td style="padding: 16px; background: #f8fafc; font-weight: 600;">연락처 (이메일)</td>
-                    <td style="padding: 16px;"></td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid #e2e8f0;">
-                    <td style="padding: 16px; background: #f8fafc; font-weight: 600;">연구비 수혜 여부</td>
-                    <td style="padding: 16px;">□ 있음 &nbsp;&nbsp;&nbsp; □ 없음</td>
-                  </tr>
-                </table>
-
-                <div style="margin-top: 32px; padding: 20px; background: #fef9c3; border-radius: 8px;">
-                  <p style="font-size: 14px; color: #713f12; margin: 0;">
-                    <strong>※ 유의사항:</strong> 본 신청서는 논문 파일과 별도로 작성하여 제출해주시기 바랍니다.
-                  </p>
+        <!-- Content Area -->
+        <div class="content-wrapper" style="max-width: 800px;"> 
+          <div class="content-card"> 
+            <div class="content-body"> 
+              <h3 class="section-title"> 
+                <div class="section-title-icon"> 
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> 
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                    <line x1="12" y1="18" x2="12" y2="12"/>
+                    <line x1="9" y1="15" x2="15" y2="15"/>
+                  </svg>
+                </div>
+                논문게재신청서 다운로드
+              </h3>
+              <!-- Download Card -->
+              <div style="background: linear-gradient(135deg, rgba(30, 64, 175, 0.03), rgba(59, 130, 246, 0.06)); border: 2px dashed rgba(30, 64, 175, 0.2); border-radius: 16px; padding: 40px; text-align: center; transition: all 0.3s ease;"> 
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: white; box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);"> 
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 40px; height: 40px;"> 
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </div>
+                <h4 style="font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">청파법학 논문게재신청서</h4>
+                <p style="font-size: 14px; color: #64748b; margin-bottom: 24px; line-height: 1.6;"> 
+                  『청파법학』에 논문을 투고하시려는 분은 아래 버튼을 클릭하여<br>
+                  논문게재신청서를 다운로드 받아 작성 후 제출해 주시기 바랍니다.
+                </p>
+                <a href="https://lawi.sookmyung.ac.kr/wiz/user/lawlab/download/treatise_appli.hwp" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; text-decoration: none; border-radius: 12px; font-size: 15px; font-weight: 600; box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);"> 
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;"> 
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  다운로드
+                </a>
+                <div style="display: flex; justify-content: center; gap: 24px; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(30, 64, 175, 0.1); flex-wrap: wrap;"> 
+                  <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #64748b;"> 
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; color: #94a3b8;"> 
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14,2 14,8 20,8"/>
+                    </svg>
+                    파일형식: HWP (한글문서)
+                  </span>
+                  <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #64748b;"> 
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; color: #94a3b8;"> 
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                      <polyline points="14,2 14,8 20,8"/>
+                    </svg>
+                    파일명: treatise_appli.hwp
+                  </span>
                 </div>
               </div>
-            </div>
-
-            <div style="background: #f8fafc; border-radius: 12px; padding: 28px; margin-top: 32px;">
-              <h3 style="font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 20px;">제출 방법</h3>
-              <p style="margin-bottom: 8px;">• 이메일: lawi@sookmyung.ac.kr</p>
-              <p style="margin-bottom: 8px;">• TEL: 02-2077-7359</p>
-              <p>• FAX: 02-710-9838</p>
+              <!-- Info Box -->
+              <div style="margin-top: 32px; padding: 20px; background: #f8fafc; border-radius: 12px; border-left: 4px solid #1e40af;"> 
+                <div style="font-size: 14px; font-weight: 700; color: #1e40af; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;"> 
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;"> 
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="16" x2="12" y2="12"/>
+                    <line x1="12" y1="8" x2="12.01" y2="8"/>
+                  </svg>
+                  논문 투고 안내
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0;"> 
+                  <li style="font-size: 14px; color: #475569; padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.6;"> 
+                    <span style="position: absolute; left: 0; color: #1e40af;">•</span>
+                    논문게재신청서 작성 후 논문 원고와 함께 이메일로 제출해 주시기 바랍니다.
+                  </li>
+                  <li style="font-size: 14px; color: #475569; padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.6;"> 
+                    <span style="position: absolute; left: 0; color: #1e40af;">•</span>
+                    논문은 『청파법학』 편집규정 및 집필요령을 준수하여 작성하여야 합니다.
+                  </li>
+                  <li style="font-size: 14px; color: #475569; padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.6;"> 
+                    <span style="position: absolute; left: 0; color: #1e40af;">•</span>
+                    모든 논문 투고자는 논문 제출과 동시에 논문심사비를 납부하여야 합니다.
+                  </li>
+                  <li style="font-size: 14px; color: #475569; padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.6;"> 
+                    <span style="position: absolute; left: 0; color: #1e40af;">•</span>
+                    논문의 접수 및 심사는 연중 수시로 진행됩니다.
+                  </li>
+                </ul>
+              </div>
+            
+              <!-- Contact Box -->
+              <div style="margin-top: 24px; padding: 20px; background: white; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;"> 
+                <div style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(59, 130, 246, 0.1)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #1e40af; flex-shrink: 0;"> 
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"> 
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div style="flex: 1;"> 
+                  <div style="font-size: 12px; color: #64748b; margin-bottom: 4px;">논문 제출 및 문의</div>
+                  <div style="font-size: 15px; font-weight: 600; color: #1e293b;"> 
+                    <a href="mailto:lawi@sookmyung.ac.kr" style="color: #1e40af; text-decoration: none;">lawi@sookmyung.ac.kr</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
